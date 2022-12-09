@@ -19,7 +19,6 @@ where title in ('ZORRO ARK', 'VIRGIN DAISY', 'UNITED PILOT');
 select * from sakila.city 
 where city in ('Chiayi','Dongying','Fukuyama','Kilis');
 
-#between para valores dentro de un rango
 select * from sakila.rental 
 where (customer_id between 300 and 350)
 and staff_id = 1;
@@ -37,12 +36,6 @@ where (rental_rate between 0.99 and 2.99)
 and length <= 50
 and replacement_cost < 20;
 
-#like es utilizado para buscar un patron especifico
-#'A%' para buscar los que empiezan con A
-#'%A' para buscar los que terminan con A
-#'%A%' para buscar la palabra A en cualquier posicion que se encuentre
-#'A%E' para buscar los que empiezan con A y terminan con E
-
 select * from sakila.actor
 where first_name like 'A%' and last_name like 'B%';
 
@@ -58,12 +51,6 @@ where first_name like 'A%E';
 select * from sakila.film
 where release_year = 2006 
 and title like 'ALI%';
-
-# INNER JOIN 
-#Esta cláusula busca coincidencias entre 2 tablas, en función a una columna que tienen en común. 
-#De tal modo que sólo la intersección se mostrará en los resultados.
-#con LEFT JOIN damos prioridad a la tabla de la izquierda, y buscamos en la tabla derecha.
-#con RIGHT JOIN damos prioridad a la tabla de la derecha, y buscamos en la tabla izquierda.
 
 select f.title, f.description, f.release_year, l.name
 from sakila.film f
